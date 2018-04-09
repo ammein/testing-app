@@ -18,6 +18,13 @@ it('should square a number' , () => {
     expect(res).toBe(400 , `Expected Result : 400 . You get ${res}`)
 });
 
+it('should timeOut testing valid for square number' , (done) => {
+    utils.asyncSquare(2 , (sum)=>{
+        expect(sum).toBe(4).toBeA('number');
+        done();
+    })
+})
+
 it('should expect some values' , () => {
     // expect(12).toNotBe(11);
     // expect({name : 'Andrew'}).toNotEqual({name : 'Andrew'} , `JSON does not match ! It goes ${this}`);
@@ -33,6 +40,14 @@ it('should expect some values' , () => {
         age : 25
     });
 });
+
+it('Should async add two numbers' , (done) => {
+    utils.asyncAdd(4 , 3 ,(sum)=>{
+        expect(sum).toBe(7).toBeA('number');
+        done();        
+    });
+});
+
 
 it('should verify first and last name are set' ,() => {
     var user = {location : 'Philadelphia' , age : 25};
